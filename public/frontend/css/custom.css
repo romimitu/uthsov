@@ -1,0 +1,14 @@
+/* your styles go here */
+.none{display: none;}
+.popupcart{position: fixed;top: 30%;right: 15px;z-index: 99999;}
+.popupcart nav.navbar{background: #dedede;border-radius: 10px;border: 5px solid #ffffff;padding: 10px;}
+.popupcart nav.navbar .dropdown-menu.show{overflow: auto;height: 350px;}
+
+
+
+@media screen and (max-width: 992px) {
+	a.view-cart{margin-left: 0px;}
+	nav.navbar .search, nav.navbar .right-col a.dropdown-toggle{margin-bottom: 0px !important;}
+	.popupcart{width: 90px;text-align: center;}
+	.popupcart nav.navbar{padding: 0px;}
+}
