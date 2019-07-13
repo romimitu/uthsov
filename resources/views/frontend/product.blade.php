@@ -43,46 +43,51 @@
               </div>
               @endif
               @foreach($products as $product)
-              <div class="item col-xl-4 col-md-6">
+              <div class="item col-xl-3 col-md-6">
                 <div class="product is-gray">
-                  <div class="image d-flex align-items-center justify-content-center">
-
-                    @if($product->productDetail->count() > 0)
-                    @if($product->productDetail->max('less_amt') > 0)
-                    <div class="ribbon ribbon-primary text-uppercase">Discount</div>
-                    @endif
-                    @endif
-
-                    @if($product->image->count() > 0)
-                    <img src="/uploads/product/{{$product->image[0]->image}}" alt="product" class="img-fluid">
-                    @endif
-                    <div class="hover-overlay d-flex align-items-center justify-content-center">
-                      <div class="CTA d-flex align-items-center justify-content-center">
-                        <a href="{{ url('product', [$product->id, make_slug($product->title)] )}}" class="visit-product active"><i class="icon-search"></i>View</a>
-                      </div>
-                    </div>
+              <div class="image d-flex align-items-center justify-content-center">
+                @if($product->productDetail->count() > 0)
+                @if($product->productDetail->max('less_amt') > 0)
+                <div class="ribbon ribbon-primary text-uppercase">Discount</div>
+                @endif
+                @endif
+                @if($product->image->count() > 0)
+                <img src="/uploads/product/{{$product->image[0]->image}}" alt="product" class="img-fluid">
+                @endif
+                <a href="javascript:;" class="addCart">
+                  <div class="hover-overlay d-flex align-items-center justify-content-center">
+                    <i class="icon-cart"></i>Add to cart
                   </div>
-                  <div class="title text-center">
-                    <a href="{{ url('product', [$product->id, make_slug($product->title)] )}}">
-                      <h3 class="h6 text-uppercase no-margin-bottom">{{$product->title}}</h3>
+                </a>
+                <!-- <div class="hover-overlay d-flex align-items-center justify-content-center">
+                  <div class="CTA d-flex align-items-center justify-content-center">
+                    <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}" class="visit-product active">
+                      <i class="icon-search"></i>View
                     </a>
-                    @if($product->productDetail->count() == 1)
+                  </div>
+                </div> -->
+              </div>
+              <div class="title text-center">
+                <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}">
+                  <h3 class="h6 text-uppercase no-margin-bottom">{{$product->title}}</h3>
+                </a>
+                @if($product->productDetail->count() == 1)
               <input type="text" id="product-size" value="{{$product->productDetail[0]->size_id}}" style="display: none;">
               <input type="text" id="detailsId" value="{{$product->productDetail[0]->id}}" style="display: none;">
               <input type="text" id="product-id" value="{{$product->id}}" style="display: none;">
-                    <span class="price text-muted">
-                      Tk. {{$product->productDetail->max('sales_price')}}
-                    </span>
-                    <div class="text-center">
-                      <button class="btn btn-template btn-sm wide addCart"><i class="icon-cart"></i> Add to Cart</button>
-                    </div>
-                    @elseif($product->productDetail->count() > 1)
-                    <span class="price text-muted">
-                      Tk. {{$product->productDetail->min('sales_price')}}-{{$product->productDetail->max('sales_price')}}
-                    </span>
-                    @endif
-                  </div>
+                <span class="price text-muted">
+                  Tk. {{$product->productDetail->max('sales_price')}}
+                </span>
+                <div class="text-center">
+                  <button class="btn btn-template btn-sm wide addCart"><i class="icon-cart"></i> Add to Cart</button>
                 </div>
+                @elseif($product->productDetail->count() > 1)
+                <span class="price text-muted">
+                  Tk. {{$product->productDetail->min('sales_price')}}-{{$product->productDetail->max('sales_price')}}
+                </span>
+                @endif
+              </div>
+            </div>
               </div>
               @endforeach
             </div>
@@ -94,6 +99,7 @@
         </div>
       </div>
     </main>
+    @include('frontend.layouts.quickcart')
     
 @endsection
 

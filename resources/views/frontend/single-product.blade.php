@@ -248,6 +248,7 @@
         </div>
       </div>
     </section>
+    @include('frontend.layouts.quickcart')
 @endsection
 
 

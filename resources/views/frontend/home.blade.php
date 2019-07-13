@@ -3,6 +3,37 @@
 @section('content')
 	
 	@include('frontend.layouts.slider')
+
+    <!-- CATEGORIES Section-->
+    <section class="blog gray-bg">
+      <div class="container">
+        <header class="text-center">
+          <h2 class="text-uppercase">PRODUCT CATEGORIES</h2>
+        </header>
+        <div class="row">
+          <!-- post-->
+          @foreach($allCategories as $cat)
+          <div class="col-lg-3">
+            <a href="{{ url('category-product', [$cat->id, str_slug($cat->name)] )}}">
+              <div class="post post-gray text-center">
+                <div class="post-image">
+                  @if($cat->image)
+                  <img src="/{{$cat->image}}" class="img-responsive">
+                  @else
+                  <img src="https://dummyimage.com/600x400/666666/ffffff.jpg&text=uthsov.com" class="img-responsive">
+                  @endif
+                </div>
+                <div class="info"> 
+                    <h4 class="h5">{{$cat->name}}</h4>
+                </div>
+              </div>
+            </a>
+          </div>
+          @endforeach
+          <!-- /end post-->
+        </div>
+      </div>
+    </section>
     <section class="categories">
       <div class="container">
         <header class="text-center">
@@ -44,16 +75,21 @@
                 @if($product->image->count() > 0)
                 <img src="/uploads/product/{{$product->image[0]->image}}" alt="product" class="img-fluid">
                 @endif
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
+                <a href="javascript:;" class="addCart">
+                  <div class="hover-overlay d-flex align-items-center justify-content-center">
+                    <i class="icon-cart"></i>Add to cart
+                  </div>
+                </a>
+                <!-- <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center">
-                    <a href="{{ url('product', [$product->id, make_slug($product->title)] )}}" class="visit-product active">
+                    <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}" class="visit-product active">
                       <i class="icon-search"></i>View
                     </a>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="title text-center">
-                <a href="{{ url('product', [$product->id, make_slug($product->title)] )}}">
+                <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}">
                   <h3 class="h6 text-uppercase no-margin-bottom">{{$product->title}}</h3>
                 </a>
                 @if($product->productDetail->count() == 1)
@@ -79,7 +115,7 @@
       </div>
     </section>
     <!-- Divider Section-->
-    @foreach($features as $feature)
+    <!-- @foreach($features as $feature)
     @if ($loop->last)
     <section style="background: url(/{{$feature->image}});" class="divider">
       <div class="container"> 
@@ -93,7 +129,7 @@
       </div>
     </section>
     @endif
-    @endforeach
+    @endforeach -->
     <!-- Women's Collection -->
     <section class="women-collection">
       <div class="container">
@@ -114,16 +150,21 @@
                 @if($product->image->count() > 0)
                 <img src="/uploads/product/{{$product->image[0]->image}}" alt="product" class="img-fluid">
                 @endif
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
+                <a href="javascript:;" class="addCart">
+                  <div class="hover-overlay d-flex align-items-center justify-content-center">
+                    <i class="icon-cart"></i>Add to cart
+                  </div>
+                </a>
+                <!-- <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center">
-                    <a href="{{ url('product', [$product->id, make_slug($product->title)] )}}" class="visit-product active">
+                    <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}" class="visit-product active">
                       <i class="icon-search"></i>View
                     </a>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="title text-center">
-                <a href="{{ url('product', [$product->id, make_slug($product->title)] )}}">
+                <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}">
                   <h3 class="h6 text-uppercase no-margin-bottom">{{$product->title}}</h3>
                 </a>
                 @if($product->productDetail->count() == 1)
@@ -145,33 +186,6 @@
             </div>
           </div>
           @endforeach
-        </div>
-      </div>
-    </section>
-    <!-- Blog Section-->
-    <section class="blog gray-bg">
-      <div class="container">
-        <header class="text-center">
-          <h2 class="text-uppercase">Latest from the blog</h2>
-        </header>
-        <div class="row">
-          <!-- post-->
-          @foreach($blogs as $blog)
-          <div class="col-lg-6">
-            <div class="post post-gray d-flex align-items-center flex-md-row flex-column">
-              <div class="thumbnail d-flex-align-items-center justify-content-center">
-                <img src="/{{$blog->image}}" alt="..."></div>
-              <div class="info"> 
-                  <h4 class="h5"> 
-                  <a href="{{ url('our-blog', [$blog->id, make_slug($blog->title)] )}}">{{$blog->title}}</a></h4>
-                  <span class="date"><i class="fa fa-clock-o"></i>{{ $blog->created_at->format('j M Y') }}</span>
-                  <p>{!! str_limit(strip_tags($blog->details), 130) !!} </p>
-                  <a href="{{ url('our-blog', [$blog->id, make_slug($blog->title)] )}}" class="read-more">Read More<i class="fa fa-long-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          @endforeach
-          <!-- /end post-->
         </div>
       </div>
     </section>
@@ -213,4 +227,5 @@
       </div>
     </section> -->
     <div id="scrollTop"><i class="fa fa-long-arrow-up"></i></div>
+    @include('frontend.layouts.quickcart')
 @endsection

@@ -1,14 +1,75 @@
 /* your styles go here */
 .none{display: none;}
-.popupcart{position: fixed;top: 30%;right: 15px;z-index: 99999;}
-.popupcart nav.navbar{background: #dedede;border-radius: 10px;border: 5px solid #ffffff;padding: 10px;}
-.popupcart nav.navbar .dropdown-menu.show{overflow: auto;height: 350px;}
-
-
-
-@media screen and (max-width: 992px) {
-	a.view-cart{margin-left: 0px;}
-	nav.navbar .search, nav.navbar .right-col a.dropdown-toggle{margin-bottom: 0px !important;}
-	.popupcart{width: 90px;text-align: center;}
-	.popupcart nav.navbar{padding: 0px;}
+.addToCart {position: fixed;right: 0;top: 130px;z-index: 2000000091!important;background: #d0e39c;
+	border-radius: 6px;}
+.AddToCartWidth .cartList:before, .addToCart {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
 }
+.show {display: block!important;}
+.addToCart .cartList {margin: 0;color: #fff;padding: 12px 16px;background: #086a34;text-align: center;
+    list-style: none;border-radius: 10px 0 0;
+}
+#thumbnail-slider div.inner, .addToCart .cartList, .addToCart_item li, .addToCart_price, 
+.bg, .blog-col-item .photo, .col-item .photo, .product-box img, .productbg, .total, 
+.ui-selectmenu-text, .ui-spinner, .ui-spinner-button, nav ul {
+    overflow: hidden;
+}
+.addToCart_item {margin: 0 0 10px;max-height: 250px;padding: 15px;overflow-y: scroll;width: 100%;}
+.cartWidth .addToCart_price {border-radius: 0 0 0 10px;}
+.addToCart_price {padding: 8px;background: #4f9b00;color: #fff;font-size: 18px;margin: 0;}
+.addToCart_price, .blogSubscribe h3, .blog_categories_right, .category h3, .free, .ht-order, 
+.product-box a.title {text-transform: uppercase;}
+.addToCart.AddToCartWidth .cartList li {float: left;}
+.addToCart.AddToCartWidth .cartList li:last-child {float: right;font-size: 12px;}
+.AddToCartWidth {width: 300px;background: #f2f2f3;border-radius: 10px 0 0 10px;}
+.addToCart_price li+li {float: right;}
+.addToCart_price li {float: left;list-style: none;color: #fff;}
+.addToCart_item li {border-bottom: 1px dotted #fff;margin-bottom: 5px;overflow: hidden;}
+.total {padding-bottom: 5px;}
+.addToCart_item li .total figure {width: 20%;float: left;}
+.addToCart_item li .total figure img {width: 100%;border: 2px solid gray;}
+.addToCart_item li .total .addToCartQuantityName {width: 10px;float: left;padding: 2px 5px;}
+.addToCart_item li .total .addToCartProductName {width: 40%;float: left;padding: 2px 5px;}
+.addToCart_item .addToCart_taka {cursor: pointer;float: right;padding: 10px 0;
+	color: #515769;font-weight: 700;}
+.addToCart_item li .total .addToCartProductName p {margin: 0;text-transform: capitalize;font-size: 15px;
+	line-height: 18px;color: #3a3a3a;font-weight: 700;}
+.total .addToCartProductName span {color: #515769;font-size: 10px;font-weight: 700;}
+.order_now {background: #d5be28;text-transform: uppercase;padding: 10px 15px;font-size: 18px;
+	text-align: center;color: #000;display: block;}
+.order_now:hover {background: #71b63b;transition: all .5s;color: #fff;}
+.AddToCartWidth .removeBtn {
+    position: absolute;
+    top: -6px;
+    background: #d5be28;
+    left: -10px;
+    padding: 5px 6px;
+    margin: 0;
+    border-radius: 50px;
+    font: normal normal normal 15px/1 FontAwesome;
+    content: "\f00d";
+    font-size: 20px;
+}
+.addToCart_taka i {
+    margin-left: 5px;
+    font-size: 20px;
+}
+.addToCartShow, .addToCart_item{display: none;}
+
+
+a:focus, a:hover {color: #ddd;text-decoration: none;}
+
+.top-bar {padding: 5px 1rem;background: #154027;}
+nav.navbar{padding: 0px 0px;}
+.product.is-gray{background: #dee2e6;}
+.product.is-gray a:hover{color: #086b1f;}
+.product.is-gray .image{background: #fff;}
+.img-responsive{display: block;max-width: 100%;height: auto;}
+.navbar .navbar-nav{margin-right: 0 !important;}
+section.hero .item {height: 400px;}
+footer.main-footer .copyrights{background: #133c27;padding: 15px 0;}
+footer.main-footer .main-block {background: #194627;color: #999;padding: 50px 0;}
+
+.btn.wide, .wide.btn-template-outlined {padding-left: 20px;padding-right: 20px;}
+.product .title > a{min-height: 35px;}
+section.product-details .product-images .owl-carousel {background: #ffffff;}

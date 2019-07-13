@@ -57,6 +57,10 @@
                 	</td>
               		<td id="total_price">৳<span>{{$product['total_price']}}</span></td>
               		<td><i class="delete fa fa-trash" onclick="removeCart({{$product['id']}})"></i></td>
+                    <td class="none">
+                        <input type="text" value="{{$product['id']}}" id="product-id">
+                        <input type="text" value="{{$product['size_id']}}" id="product-size">
+                    </td>
               	</tr>
               @endforeach
       		</tbody>
@@ -96,6 +100,24 @@
 
 	});
 	function calculateGrid(){
+        var product_id = $(this).closest('tr').find('#product-id').val();
+        var size_id = $(this).closest('tr').find('#product-size').val();
+        var url = "{{ route('cart.add') }}";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: { 
+                "_token": "{{ csrf_token() }}",
+                product_id: product_id,
+                size_id:size_id
+            },
+            success: function (data,i) {
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
         $(".txtQty").each(function () {
             if (!isNaN(this.value) && this.value.length != 0) {
 		    	qty= parseFloat($(this).val());

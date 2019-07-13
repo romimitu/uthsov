@@ -33,7 +33,7 @@
 
                             {!! Form::open(['url' => ['/category', $category->id], 'method' =>'PATCH', 'class'=>'form-horizontal','enctype'=>"multipart/form-data"]) !!}
                                 <div class="modal-body">
-                                    <div class="form-group">
+                                    <div class="form-group none">
                                         <label class="col-sm-4 control-label">Parent Category</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" name="parent_id">
@@ -68,10 +68,12 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Close">
                                     {!! Form::submit('Submit ', ['class'=> 'btn btn-primary']) !!}
+                            {!! Form::close() !!}
+                                    {!! Form::open([ 'method' => 'Delete', 'url' => ['/category', $category->id]]) !!}
+                                    {!! Form::submit('Delete',['class'=>'btn-danger btn']) !!}
+                                    {!! Form::close() !!}
                                 </div>
-                                {!! Form::close() !!}
                         </div>
                     </div>
                 </div>

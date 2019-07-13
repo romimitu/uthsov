@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
 use App\Product;
 use App\Category;
 use App\Size;
@@ -17,9 +18,22 @@ use App\OtpVerify;
 class PublicController extends Controller
 {
 
+    public function ProductSearch(Request $request)
+    {
+        $products = Product::with('category','brand','color','image','productDetail')
+        ->where('status', 1)
+        ->where('title', 'like', '%' . Input::get('search') . '%')
+        ->orderBy('created_at', 'desc')
+        ->paginate(12);
+        return view('frontend.product', ['products' => $products]);
+     }
+
     public function getProducts()
     {
-        $products = Product::with('category','brand','color','image','productDetail')->orderBy('created_at', 'desc')->paginate(12);
+        $products = Product::with('category','brand','color','image','productDetail')
+        ->where('status', 1)
+        ->orderBy('created_at', 'desc')
+        ->paginate(12);
         //dd($products);
         return view('frontend.product', compact('products'));
     }
@@ -28,6 +42,7 @@ class PublicController extends Controller
     {
         $products = Product::with('category','brand','color','image','productDetail')
         ->where('cat_id', $id)
+        ->where('status', 1)
         ->orderBy('created_at', 'desc')->paginate(12);
         return view('frontend.product', compact('products'));
     }

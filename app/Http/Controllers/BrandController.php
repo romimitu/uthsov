@@ -40,7 +40,7 @@ class BrandController extends Controller
 
     public function show(Brand $brand)
     {
-        $data = Brand::find($id);
+        $data = Brand::find($brand->id);
         return response()->json($data);
     }
 

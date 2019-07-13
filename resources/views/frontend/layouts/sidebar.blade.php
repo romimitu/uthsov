@@ -1,5 +1,5 @@
 
-          <div class="sidebar col-xl-3 col-lg-4 sidebar">
+          <div class="sidebar col-xl-3 col-lg-4">
             <div class="block">
               <h6 class="text-uppercase">Product Categories</h6>
               <ul class="list-unstyled">

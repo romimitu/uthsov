@@ -40,7 +40,7 @@ class ColorController extends Controller
 
     public function show(Color $color)
     {
-        $data = Color::find($id);
+        $data = Color::find($color->id);
         return response()->json($data);
     }
 

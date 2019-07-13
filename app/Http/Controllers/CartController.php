@@ -30,10 +30,12 @@ class CartController extends Controller
     {
         $product = DB::table('product_details')
             ->join('products', 'products.id', '=', 'product_details.product_id')
+            ->join('images', 'products.id', '=', 'images.product_id')
             ->join('sizes', 'product_details.size_id', '=', 'sizes.id')
             ->join('brands', 'brands.id', '=', 'products.brand_id')
             ->join('colors', 'colors.id', '=', 'products.color_id')
-            ->select('product_details.id','title','product_id','sales_price', 'sizes.name as size','size_id','brands.name as brand','colors.name as color','purchase_price','sales_price','less_amt')
+            ->select('product_details.id','title','image','products.id as product_id','sales_price', 'sizes.name as size','size_id','brands.name as brand','colors.name as color','purchase_price','sales_price','less_amt')
+            ->distinct()
             ->where('product_details.product_id', '=', $request->product_id)
             ->where('product_details.size_id', '=', $request->size_id)
             ->get();
@@ -47,7 +49,9 @@ class CartController extends Controller
                 'id' => $product[0]->id,
                 'product_id' => $product[0]->product_id,
                 'title' => $product[0]->title,
+                'image' => $product[0]->image,
                 'size' => $product[0]->size,
+                'size_id' => $product[0]->size_id,
                 'quantity' => 1,
                 'price' => $product[0]->sales_price,
                 'lessamt' => $product[0]->less_amt,

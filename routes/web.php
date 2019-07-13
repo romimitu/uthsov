@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 // Public Route
+Route::post('/q/product', 'PublicController@ProductSearch');
 
 Route::get('/shop', 'PublicController@getProducts')->name('shop.page');
 Route::get('/productBySize', 'PublicController@getproductBySize')->name('itemby.size');

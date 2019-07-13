@@ -39,7 +39,7 @@ class SizeController extends Controller
 
     public function show(Size $size)
     {
-        $data = Size::find($id);
+        $data = Size::find($size->id);
         return response()->json($data);
     }
 

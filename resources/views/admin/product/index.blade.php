@@ -77,6 +77,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="text-center">
+                                <?php echo $data->render(); ?>
+                            </div>
                         </div>
                     </div>
                     <div class="box-footer clearfix">

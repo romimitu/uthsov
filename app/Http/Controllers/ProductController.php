@@ -28,7 +28,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $data = Product::with('category','brand','color','image','productDetail')->orderBy('created_at', 'desc')->get();
+        $data = Product::with('category','brand','color','image','productDetail')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.product.index', compact('data'));
     }
 

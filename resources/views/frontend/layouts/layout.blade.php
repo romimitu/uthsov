@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UTHSOV - Your Dream. Our Team</title>
     <meta name="description" content="">
@@ -33,25 +33,14 @@
     <script src="/frontend/js/modernizr.custom.79639.js"></script>
 </head>
 <body>
-  	@include('frontend.layouts.header')
+    @include('frontend.layouts.header')
 
     @yield('content')
 
     @include('frontend.layouts.footer')
-    <div class="popupcart none">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <div id="navbarCollapse" class="navbar-collapse">
-            <div class="right-col d-flex align-items-lg-center flex-column flex-lg-row">
-              <!-- Cart Dropdown-->
-             @include('frontend.layouts.quickcart')
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
 
-	  <script src="/frontend/vendor/jquery/jquery.min.js"></script>
+
+    <script src="/frontend/vendor/jquery/jquery.min.js"></script>
     <script src="/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/frontend/vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="/frontend/vendor/owl.carousel/owl.carousel.min.js"></script>
@@ -79,13 +68,17 @@
       
     </script>
     <script>
-                  
-      $(document).ready(function () {
-        $(".cart-no").text(sumQty());
-        if(parseFloat($(".cart-no").text())>0){
-          $(".popupcart").removeClass('none')
+        function cartsWidget(){
+          $('.addToCartShow, .addToCart_item').css('display','block');
+          $('.addToCart').removeClass('cartWidth')
+          $('.addToCart').addClass('AddToCartWidth')
         }
-      });
+        function removeBtn(){console.log('as');
+          $('.addToCartShow, .addToCart_item').css('display','none');
+          $('.addToCart').removeClass('AddToCartWidth')
+          $('.addToCart').addClass('cartWidth')
+        }
+
 
         $('.addCart').on('click', function(){
           if($('#product-size').val() == 0){
@@ -118,35 +111,34 @@
                     var itemId = parseFloat(product.id);
                     var qty = parseFloat(product.quantity);
                     var netPrice = qty*product.sale_price;
-                    var rows = '<div class="dropdown-item cart-product" id="cart-items-'+product.id+'">'
-                      +'<div class="d-flex align-items-center">'
-                      +'<div class="details d-flex justify-content-between">'
-                      +'<div class="text">'
-                      +'<a href="javascript:;"><strong>'+ product.title+'</strong></a>'
-                      +'<small>Quantity: <b class="qty">'+qty+'</b> Size: <b>'+ product.size+'</b></small>'
-                      +'<span class="price">Tk <b class="netPrice">'+netPrice+'</b></span>'
-                      +'</div>'
+                    var rows = '<li class="shopcartItem shoppingCart'+product.id+'">'
                       +'<input type="text" value="'+product.id+'" id="cartItemId" style="display: none;">'
-                      +'<a href="javascript:;" onclick="removeCart('+product.id+')" class="delete"><i class="fa fa-trash-o"></i></a>'
-                      +'</div></div></div>';
-                    $(".cart-product").each(function () {
+                      +'<div class="total"><figure><img src="/uploads/product/'+product.image+'"></figure>'
+                      +'<div class="addToCartQuantityName">'+qty+'</div>'
+                      +'<div class="addToCartProductName"><p>'+ product.title+'</p>'
+                      +'<span><span>'+ product.size+'</span>/ '+product.sale_price+'tk</span></div>'
+                      +'<span class="addToCart_taka" style="font-size: 12px"><span class="ItemTotal">'+netPrice+'</span>tk'
+                      +'<i class="fa fa-times" onclick="removeCart('+product.id+')"></i></span>'
+                      +'</div></li>';
+
+
+
+                    $(".shopcartItem").each(function () {
                         tbarcode = parseFloat($(this).find('#cartItemId').val());
                         if (tbarcode == itemId) {
-                            $(this).find('.qty').text(qty);
-                            $(this).find('.netPrice').text((netPrice).toFixed(2));
+                            $(this).find('.addToCartQuantityName').text(qty);
+                            $(this).find('.ItemTotal').text(netPrice);
                             return false;
                         }
                     });
                     if (tbarcode != itemId) {
-                        $('.quick-cart-body').append(rows);
-                        $('#cart-view').css('display','block');
+                        $('.addToCart_item').append(rows);
                     }
-                    $(".grandTotal").text(sumPrice());
-                    $(".cart-no").text(sumQty());
+                    $(".cartTotal").text(sumPrice());
+                    $(".cartQty").text(sumQty());
                     setTimeout(function() {
                       $this.html($this.data('original-text'));
                       $this.prop("disabled", false);
-                      $(".popupcart").removeClass('none')
                     }, 800)
                   },
                   error: function (data) {
@@ -167,11 +159,9 @@
                   product_id: product_id 
                 },
                 success: function (data) {
-                    $("#cart-items-"+product_id).fadeOut(500,function(){ 
-                        $(this).remove();
-                        $(".grandTotal").text(sumPrice());
-                        $(".cart-no").text(sumQty());
-                    }); 
+                    $('li.shoppingCart'+product_id).remove();
+                    $('.cartTotal').text(sumPrice());
+                    $('.cartQty').text(sumQty());
                 },
                 error: function (data) {
                   console.log('Error:', data);
@@ -180,14 +170,14 @@
         };
         function sumPrice(){
             var sum = 0;
-            $('.header-cart .dropdown-item.cart-product .netPrice').each(function() {
+            $('.shopcartItem .ItemTotal').each(function() {
               sum += +parseFloat($(this).text())||0;
             });
             return sum.toFixed(2);
         }
         function sumQty(){
             var sum = 0;
-            $('.header-cart .dropdown-item.cart-product .qty').each(function() {
+            $('.shopcartItem .addToCartQuantityName').each(function() {
               sum += +parseFloat($(this).text())||0;
             });
             return sum;
@@ -195,7 +185,7 @@
     </script>
     <!-- Main Template File-->
     <script src="/frontend/js/front.js"></script>
-	
-	@yield('script')
+  
+  @yield('script')
 </body>
 </html>

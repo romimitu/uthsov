@@ -38,7 +38,11 @@ class CategoryController extends Controller
         $data = $request->except('image'); 
         $data['image']=uploadFile('image',$request,'uploads/category/');
         $data['parent_id'] = empty($data['parent_id']) ? 0 : $data['parent_id'];
+        $data['child_status'] = 1;
         $data = Category::create($data);
+        $cat = Category::whereId(request()->input('parent_id'))->update([
+            'child_status' => 0,
+        ]);
         Session::flash('message','Added  Successfully');
         return redirect('/category');  
     }
@@ -69,8 +73,8 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        // $category->delete();
-        // Session::flash('message', 'Successfully Deleted');
-        // return redirect('/category');
+        $category->delete();
+        Session::flash('message', 'Successfully Deleted');
+        return redirect('/category');
     }
 }

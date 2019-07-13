@@ -31,7 +31,9 @@ class PublicComposer
     }
     public function getProduct(View $view)
     {
-        $products = Product::with('category','brand','color','image','productDetail')->orderBy('created_at', 'desc')->get();
+        $products = Product::with('category','brand','color','image','productDetail')
+        ->where('status', 1)
+        ->orderBy('created_at', 'desc')->get();
         //dd($products);
         $view->with('products', $products);
     }
@@ -69,8 +71,16 @@ class PublicComposer
 
     public function getCategory(View $view)
     {
-        $categories = Category::where('parent_id', '=', 0)->get();
-        $allCategories = Category::pluck('name','id')->all();
+        $categories = Category::where('parent_id', '=', 0)
+        ->where('status', 1)
+        ->get();
+        $allCategories = DB::table('categories')
+        ->where('status', 1)
+        ->where('child_status', 1)
+        ->inRandomOrder()
+        ->paginate(8);
+        //$cat = Category::with('childs')->get()->toArray();
+        //dd($allCategories);
         $view->with('categories', $categories)->with('allCategories', $allCategories);
     }
 }

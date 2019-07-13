@@ -256,7 +256,6 @@
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             data: {id:param,"_token": "{{ csrf_token() }}"},
             success: function (data) {
-                alert(JSON.stringify(data);
                 $(".image-"+param).remove();
             },
             error: function (data) {

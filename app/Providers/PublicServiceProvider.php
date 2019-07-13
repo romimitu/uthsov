@@ -17,6 +17,7 @@ class PublicServiceProvider extends ServiceProvider
         View::composer('frontend.layouts.quickcart','App\Http\ViewComposer\PublicComposer@getQuickCart');
         View::composer('frontend.layouts.profile-sidebar','App\Http\ViewComposer\PublicComposer@getUser');
         View::composer('frontend.layouts.sidebar','App\Http\ViewComposer\PublicComposer@getCategory');
+        View::composer('frontend.home','App\Http\ViewComposer\PublicComposer@getCategory');
     }
 
     public function register()
