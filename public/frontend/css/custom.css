@@ -73,3 +73,44 @@ footer.main-footer .main-block {background: #194627;color: #999;padding: 50px 0;
 .btn.wide, .wide.btn-template-outlined {padding-left: 20px;padding-right: 20px;}
 .product .title > a{min-height: 35px;}
 section.product-details .product-images .owl-carousel {background: #ffffff;}
+footer.main-footer .services-block h6 a{color: #fff;}
+section.categories .item{padding: 0px;}
+section.categories .item .content{display: block;background: #ffffff;width: 100%;text-align: center;
+    padding: 10px;opacity: 0.7;color: black;}
+section.categories .item span{color: #000;}
+
+.measurement-tag {border-radius: 10px;border: 1px solid #197500;display: inline-block;padding: 0 12px;
+    background: green;font-weight: 700;color: #fff;margin-bottom: 5px;font-size: 12px;}
+.p-info span {color: #b64500;padding: 0 7px;font-size: 18px!important;font-weight: 700;}
+.addToCartDiscountPrice {border: 1px solid #197500;border-radius: 10px;margin: 0 5px;padding: 2px 10px;}
+
+.p-info{font-size: 14px;line-height: 20px;margin: 0;font-weight: 400;color: #fff;margin-bottom: 5px;}
+
+.add-to-cart:hover {transition: all .5s;color: #197500;}
+
+.add-to-cart:hover {background: #d5be28;}
+.add-to-cart {display: inline-block;margin: 0 auto;border: 1px solid #197500;height: 32px;padding-top: 3px;
+    cursor: pointer;}
+.awesome {color: #00391a;background: #d2dbd1;margin-top: -3px;padding: 7px 5px 7px;}
+.add-to-cart>span {color: #197500;font-weight: 700;}
+.cart_text {padding: 0 7px;color: #fff;}
+
+.overlay {display: block;top: 0;height: 100%;display: none;background: rgba(0,0,0,.53);cursor: pointer;}
+.overlay, a.btnshow {position: absolute;left: 0;width: 100%;}
+.divoverlay {height: 100%;width: 100%;}
+a.btnshow {display: block;bottom: 0;right: 0;height: 25px;background: #d5be28;text-align: center;
+    border: 0;color: #fff;font-weight: 700;font-size: 12px;padding: 3px;text-decoration: none;
+    line-height: 20px;margin-bottom: 0;
+}
+.addtocartshow.show {color: #fff;padding-top: 40%;font-weight: 500;text-align: center;display: block;}
+.image:hover .overlay {display: block;}
+.post .info {min-height: 85px;}
+.product .title small {display: block;}
+@media only screen and (max-width: 768px) and (min-width: 300px)  {
+    .overlay{display:block;background:unset;}
+    .addtocartshow.show{display:none!important;}
+}
+
+
+
+

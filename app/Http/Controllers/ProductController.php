@@ -51,6 +51,7 @@ class ProductController extends Controller
             'brand_id' => request()->input('brand_id'),
             'color_id' => request()->input('color_id'),
             'in_stock' => request()->input('in_stock'),
+            'status' => request()->input('status'),
         ]);
         foreach ($request->sizes as $key=>$data) {
             $data = new ProductDetail();
@@ -101,11 +102,12 @@ class ProductController extends Controller
             'brand_id' => request()->input('brand_id'),
             'color_id' => request()->input('color_id'),
             'in_stock' => request()->input('in_stock'),
+            'status' => request()->input('status'),
         ]);
         
+        $rows = DB::table('product_details')->where('product_id', $request->product_id);
+        $rows->delete();
         if ($request->sizes){
-            $rows = DB::table('product_details')->where('product_id', $request->product_id);
-            $rows->delete();
             foreach ($request->sizes as $key=>$data) {
                 $data = new ProductDetail();
                 $data->product_id = $request->product_id;

@@ -21,7 +21,7 @@
                     </figure>
                     <div class="addToCartQuantityName">{{$product['quantity']}}</div>
                     <div class="addToCartProductName">
-                        <p>Sundarban Box Honey</p>
+                        <p>{{$product['title']}}</p>
                         <span><span>{{$product['size']}}</span>/ {{$product['sale_price']}}</span>tk
                     </div>
                     <span class="addToCart_taka" style="font-size: 12px"><span class="ItemTotal">{{$product['quantity'] * $product['sale_price']}}</span>tk

@@ -38,7 +38,7 @@
                                         <th class="col-sm-2">Category</th>
                                         <th class="col-sm-1">Brand</th>
                                         <th class="col-sm-1">Color</th>
-                                        <th class="col-sm-1">InStock</th>
+                                        <th class="col-sm-1">Status</th>
                                         <th class="col-sm-2">Size(Price TK)</th>
                                         <th class="col-sm-1">image</th>
                                         <th class="col-sm-2">Action</th>
@@ -52,7 +52,7 @@
                                         <td>{{$product->category->name}}</td>
                                         <td>{{$product->brand->name}}</td>
                                         <td>{{$product->color->name}}</td>
-                                        <td>{{$product->in_stock}}</td>
+                                        <td>{{$product->status}}</td>
                                         <td>
                                             @foreach($product->productDetail as $detail)
                                                 <span class="label label-success"> {{$detail->size->name}} - {{number_format($detail->sales_price,0)}}</span>

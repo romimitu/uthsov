@@ -37,6 +37,18 @@ class PublicComposer
         //dd($products);
         $view->with('products', $products);
     }
+    
+    
+    public function getTrendProduct(View $view)
+    {
+        $trendproducts = Product::with('category','brand','color','image','productDetail')
+        ->where('status', 1)
+        ->inRandomOrder()
+        ->get();
+        //dd($products);
+        $view->with('trendproducts', $trendproducts);
+    }
+    
     public function getQuickCart(View $view)
     {
         $data = [];
@@ -46,7 +58,7 @@ class PublicComposer
     }
 
 
-    public function getTrendProduct(View $view)
+    public function getTrendProducts(View $view)
     {
         $trendingItem = DB::select("SELECT SUM(quantity) as qty, a.product_id, b.title, c.image, ss.sales_price
                         FROM order_products as a

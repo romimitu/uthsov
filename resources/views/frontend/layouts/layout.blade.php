@@ -85,14 +85,6 @@
             $('#txtSizeCheck').html('Please Select Size First.')
           }else{
               var $this = $(this);
-              var loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> loading...';
-              if ($(this).html() !== loadingText) {
-                $this.prop("disabled", true);
-                $this.data('original-text', $(this).html());
-                $this.html(loadingText);
-              }
-
-
               $('#txtSizeCheck').html('')
               var product_id = $this.closest('.item').find('#product-id').val();
               var size_id = $this.closest('.item').find('#product-size').val();
@@ -136,10 +128,6 @@
                     }
                     $(".cartTotal").text(sumPrice());
                     $(".cartQty").text(sumQty());
-                    setTimeout(function() {
-                      $this.html($this.data('original-text'));
-                      $this.prop("disabled", false);
-                    }, 800)
                   },
                   error: function (data) {
                       console.log('Error:', data);

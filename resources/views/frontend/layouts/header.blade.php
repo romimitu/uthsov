@@ -6,8 +6,8 @@
           <div class="row d-flex align-items-center">
             <div class="col-sm-6 hidden-lg-down">
               <ul class="list-inline">
-                <li class="list-inline-item"><i class="icon-telephone"></i>+8801920225330</li>
-                <li class="list-inline-item"><a href="mailto:info@uthsov.com">info@uthsov.com</a></li>
+                <li class="list-inline-item"><i class="icon-telephone"></i><a href="tel:+8801920225330">+8801920225330</a></li>
+                <li class="list-inline-item"><i class="icon-mail"></i><a href="mailto:info@uthsov.com">info@uthsov.com</a></li>
               </ul>
             </div>
             <div class="col-sm-6 d-flex justify-content-end">

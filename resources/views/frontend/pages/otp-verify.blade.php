@@ -26,24 +26,24 @@
           <div class="send-otp">
             <form action="javascript:;" method="post">
                 <div class="form-group col-md-6 row">
-                    <label>Enter Your Mobile Number for OTP</label>
+                    <label>Enter Your Mobile Number for confirming order.</label>
                     <input type="text" pattern="\d*" id="txtMobile" name="mobile" class="form-control" maxlength="11" minlength="11" required>
                     <span class="text-danger" id="msg"></span>
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-template sendOtp" type="submit" onclick="sendOtp();">Send OTP<i class="fa fa-angle-right"></i></button>
+                  <button class="btn btn-template sendOtp" type="submit" onclick="sendOtp();">Send Code<i class="fa fa-angle-right"></i></button>
                 </div>
             </form>
           </div>
           <div class="verify-otp none">
             <p>
               <span id="msg1"></span>
-              <button class="btn btn-sm btn-warning sendOtp" type="submit"  onclick="sendOtp();">Send OTP<i class="fa fa-angle-right"></i></button>
+              <button class="btn btn-sm btn-warning sendOtp" type="submit"  onclick="sendOtp();">Send Code<i class="fa fa-angle-right"></i></button>
             </p>
             <form action="javascript:;" method="post">
                 <div class="form-group col-md-6 row">
-                    <label>Enter OTP Code</label>
+                    <label>Enter Verification Code</label>
                     <input type="text" pattern="\d*" id="txtCode" name="code" class="form-control" maxlength="6" minlength="6" required>
                     <span class="text-danger" id="msg2"></span>
                 </div>

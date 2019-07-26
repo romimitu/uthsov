@@ -70,7 +70,8 @@
 	                            <td class="text-left">
 	                               <a target="_blank" href="Javascript:;">
 	                                   {{$product->product->title}}
-	                               </a> 
+	                               </a> <br/>
+	                               <small>Code: <i>{{$product->product->sku}}</i></small>
 	                            </td>
 	                            <td class="qty">{{$product->quantity}}</td>
 	                            <td class="unit">৳ {{$product->price}}</td>

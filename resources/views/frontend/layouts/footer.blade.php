@@ -24,7 +24,7 @@
               <div class="item d-flex align-items-center">
                 <div class="icon"><i class="icon-headphones"></i></div>
                 <div class="text">
-                  <h6 class="no-margin text-uppercase">+8801920225330</h6><span>24/7 Available Support</span>
+                  <h6 class="no-margin text-uppercase"><a href="tel:+8801920225330">+8801920225330</a></h6><span>24/7 Available Support</span>
                 </div>
               </div>
             </div>

@@ -77,7 +77,9 @@
                                             @if($order->products->count() > 0)
                                             @foreach($order->products as $product)
                                                 <tr>
-													<td>{{$product->product->title}}</td>
+													<td><b><a href="javascript:;">{{$product->product->title}}</a></b>
+													<br/>
+													<small>Code: <i>{{$product->product->sku}}</i></small></td>
 													<td>{{$product->price}}</td>
 													<td>{{$product->discount_amount}}</td>
 													<td>{{$product->quantity}}</td>

@@ -20,7 +20,7 @@ class PublicController extends Controller
 
     public function ProductSearch(Request $request)
     {
-        $products = Product::with('category','brand','color','image','productDetail')
+        $products = Product::with('category','brand','color','image','productDetail', 'productDetail.size')
         ->where('status', 1)
         ->where('title', 'like', '%' . Input::get('search') . '%')
         ->orderBy('created_at', 'desc')
@@ -30,7 +30,7 @@ class PublicController extends Controller
 
     public function getProducts()
     {
-        $products = Product::with('category','brand','color','image','productDetail')
+        $products = Product::with('category','brand','color','image','productDetail', 'productDetail.size')
         ->where('status', 1)
         ->orderBy('created_at', 'desc')
         ->paginate(12);
@@ -40,7 +40,7 @@ class PublicController extends Controller
     
     public function getProductbyCategory($id, $slug)
     {
-        $products = Product::with('category','brand','color','image','productDetail')
+        $products = Product::with('category','brand','color','image','productDetail', 'productDetail.size')
         ->where('cat_id', $id)
         ->where('status', 1)
         ->orderBy('created_at', 'desc')->paginate(12);
@@ -97,10 +97,14 @@ class PublicController extends Controller
     }
     public function otpVerify()
     {
-        if(Auth::check()) {
-        return redirect('/checkout');
+        if(session()->has('cart')){
+            if(Auth::check()) {
+            return redirect('/checkout');
+            }else{
+                return view('frontend.pages.otp-verify');
+            }
         }else{
-            return view('frontend.pages.otp-verify');
+            return view('frontend.cart');
         }
     }
     public function sendOtp(Request $request)
