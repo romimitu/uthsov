@@ -133,7 +133,7 @@
               <ul class="order-menu list-unstyled">
                 <li class="d-flex justify-content-between"><span>Order Subtotal </span><strong id="item-total">{{$total}}</strong></li>
                 <li class="d-flex justify-content-between"><span>Shipping and handling</span><strong id="shipping-fee">0.00</strong></li>
-                <li class="d-flex justify-content-between"><span>Tax</span><strong id="tax">0.00</strong></li>
+                <li class="d-flex justify-content-between"><span>Vat</span><strong id="tax">0.00</strong></li>
                 <li class="d-flex justify-content-between"><span>Total</span><strong class="text-primary price-total" id="grand-total"></strong></li>
               </ul>
             </div>
@@ -162,7 +162,7 @@
             },
             success: function (data) {
               var total=parseFloat($('#grand-total').text());
-              if(total<2000){
+              if(total<1000){
                 $('#shipping-fee').text(data[0].fee);
                 $('#shippingfee').val(data[0].fee);
                 totalCheckoutPrice();

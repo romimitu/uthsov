@@ -14,7 +14,7 @@ class PublicComposer
 {
     public function getSlider(View $view)
     {
-        $sliders = Slider::orderBy('created_at', 'desc')->get();
+        $sliders = Slider::orderBy('created_at', 'desc')->paginate(1);
         $view->with('sliders', $sliders);
     }
 

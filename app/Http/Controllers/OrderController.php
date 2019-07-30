@@ -52,7 +52,7 @@ class OrderController extends Controller
 
     public function update(Request $request, order $order)
     {
-        if(request()->input('payment_status') == 'paid'){
+        if(request()->input('payment_status') == 'Paid'){
             $paidAmt = $order->total_amount + $order->shipping_fee;
         }else{
             $paidAmt = 0;
@@ -64,8 +64,8 @@ class OrderController extends Controller
             'processed_by' => auth()->user()->id,
         ]);
 
+        //dd($order);
         session()->flash('message', 'Order Update successfully.');
-        //return redirect()->route('order.details', $order->id);
         return redirect('/orders');
 
     }

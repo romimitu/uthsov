@@ -30,11 +30,11 @@
                         <h1 class="text-danger">{{$order->payment_status}}</h1>
 	                    <div class="col company-details">
 	                        <h2 class="name">
-	                            <a target="_blank" href="http://uthsov.com/">UTHSOV</a>
+	                        	<a target="_blank" href="http://uthsov.com/" style="font-family: cursive;">UTHSOV DOTCOM</a>
 	                        </h2>
 	                        <address>2/3-A, Barobag, Mirpur-2, Dhaka-1216.</address>
-	                        <div>+8801920225330</div>
-	                        <div>info@uthsov.com</div>
+	                        <div>+88 01920-225330, info@uthsov.com</div>
+	                        <div>www.uthsov.com, Facebook/uthsov.com</div>
 	                    </div>
 	                </div>
 	            </header>

@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	@include('frontend.layouts.slider')
+@include('frontend.layouts.slider')
 
     <!-- CATEGORIES Section-->
     <section class="blog gray-bg">
@@ -89,7 +89,11 @@
                 <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}">
                   <h3 class="h6 no-margin-bottom">{{$product->title}}</h3>
                 </a>
-                <!--<small class="text-muted">Brand: {{$product->brand->name}}</small>-->
+                <!--<small class="text-muted">Brand: {{$product->brand->name}}</small>-->@if($product->productDetail->count() == 0)
+                <p class="p-info">
+                    <a href="tel:+8801920225330"><span class="addToCartDiscountPrice price-new text-center ">Call for Details</span></a>
+                </p>
+                @endif
                 @if($product->productDetail->count() == 1)
                 <input type="text" id="product-size" value="{{$product->productDetail[0]->size_id}}" style="display: none;">
                 <input type="text" id="detailsId" value="{{$product->productDetail[0]->id}}" style="display: none;">
@@ -164,7 +168,11 @@
                 <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}">
                   <h3 class="h6 no-margin-bottom">{{$product->title}}</h3>
                 </a>
-                <!--<small class="text-muted">Brand: {{$product->brand->name}}</small>-->
+                <!--<small class="text-muted">Brand: {{$product->brand->name}}</small>-->@if($product->productDetail->count() == 0)
+                <p class="p-info">
+                    <a href="tel:+8801920225330"><span class="addToCartDiscountPrice price-new text-center ">Call for Details</span></a>
+                </p>
+                @endif
                 @if($product->productDetail->count() == 1)
                 <input type="text" id="product-size" value="{{$product->productDetail[0]->size_id}}" style="display: none;">
                 <input type="text" id="detailsId" value="{{$product->productDetail[0]->id}}" style="display: none;">

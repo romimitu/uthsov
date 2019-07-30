@@ -4,15 +4,21 @@
       <div class="top-bar">
         <div class="container-fluid">
           <div class="row d-flex align-items-center">
-            <div class="col-sm-6 hidden-lg-down">
+            <div class="col-sm-4 hidden-lg-down">
               <ul class="list-inline">
                 <li class="list-inline-item"><i class="icon-telephone"></i><a href="tel:+8801920225330">+8801920225330</a></li>
                 <li class="list-inline-item"><i class="icon-mail"></i><a href="mailto:info@uthsov.com">info@uthsov.com</a></li>
               </ul>
             </div>
-            <div class="col-sm-6 d-flex justify-content-end">
+            <div class="col-sm-8 d-flex justify-content-end">
               <ul class="social-menu list-inline">
-                  <li class="list-inline-item"><div class="search"><i class="icon-search"></i></div></li>
+                  <li class="list-inline-item">
+                      
+        {!! Form::open(['url' => ['/q/product'], 'method' =>'post','enctype'=>"multipart/form-data"]) !!}
+            <input type="search" class="input" name="search" id="search" placeholder="What are you looking for?">
+            <button class="btn-primary btn-sm btn" type="submit" class="submit"><i class="fa fa-search"></i></button>
+        {!! Form::close() !!}
+                  </li>
                   @guest()
                   <li class="list-inline-item"><a href="{{route('login')}}">Login</a></li>
                   <li class="list-inline-item"><a href="{{route('register')}}">Register</a></li>
@@ -37,21 +43,6 @@
         </div>
       </div>
       <nav class="navbar navbar-expand-lg">
-        <div class="search-area">
-          <div class="search-area-inner d-flex align-items-center justify-content-center">
-            <div class="close-btn"><i class="icon-close"></i></div>
-
-        {!! Form::open(['url' => ['/q/product'], 'method' =>'post','enctype'=>"multipart/form-data"]) !!}
-
-
-          <div class="form-group">
-            <input type="search" name="search" id="search" placeholder="What are you looking for?">
-
-            <button type="submit" class="submit">Search</button>
-          </div>
-        {!! Form::close() !!}
-          </div>
-        </div>
         <div class="container-fluid">  
           <!-- Navbar Header  -->
           <a href="/" class="navbar-brand"><img src="/frontend/img/logo.png" alt="uthsov" height="60"></a>

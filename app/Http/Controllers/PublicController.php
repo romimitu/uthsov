@@ -95,6 +95,10 @@ class PublicController extends Controller
     {
         return view('frontend.pages.next-day-policy');
     }
+    public function aboutUs()
+    {
+        return view('frontend.pages.about');
+    }
     public function otpVerify()
     {
         if(session()->has('cart')){

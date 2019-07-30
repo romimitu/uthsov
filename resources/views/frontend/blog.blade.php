@@ -23,10 +23,10 @@
           <!-- post-->
 
           @foreach($blogs as $blog)
-          <div class="col-lg-6">
-            <div class="post post-gray d-flex align-items-center flex-md-row flex-column">
-              <div class="thumbnail d-flex-align-items-center justify-content-center">
-                <img src="/{{$blog->image}}" alt="..."></div>
+          <div class="col-lg-4">
+            <div class="post post-gray">
+              <div class="thumbnail">
+                <img src="/{{$blog->image}}" class="img-responsive" alt="..."></div>
               <div class="info"> 
                   <h4 class="h5"> 
                   <a href="{{ url('our-blog', [$blog->id, make_slug($blog->title)] )}}">{{$blog->title}}</a></h4>

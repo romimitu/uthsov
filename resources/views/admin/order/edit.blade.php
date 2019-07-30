@@ -114,12 +114,12 @@
 	                                <label class="col-sm-2 control-label">Order Status</label>
 	                                <div class="col-sm-4">
 	                                    <select name="operational_status" class="form-control">
-	                                        <option value="Pending {{ $order->operational_status == 'Pending' ? 'selected' : '' }}">Pending</option>
-	                                        <option value="On Going {{ $order->operational_status == 'On Going' ? 'selected' : '' }}">On Going</option>
-	                                        <option value="Ready To Deliver {{ $order->operational_status == 'Ready To Deliver' ? 'selected' : '' }}">Ready To Deliver</option>
-	                                        <option value="On The Way {{ $order->operational_status == 'On The Way' ? 'selected' : '' }}">On The Way</option>
-	                                        <option value="Complete {{ $order->operational_status == 'Complete' ? 'selected' : '' }}">Complete</option>
-	                                        <option value="Cancel {{ $order->operational_status == 'Cancel' ? 'selected' : '' }}">Cancel</option>
+                                            <option value="Pending" {{ $order->operational_status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                            <option value="On Going" {{ $order->operational_status == 'On Going' ? 'selected' : '' }}>On Going</option>
+                                            <option value="Ready To Deliver" {{ $order->operational_status == 'Ready To Deliver' ? 'selected' : '' }}>Ready To Deliver</option>
+                                            <option value="On The Way" {{ $order->operational_status == 'On The Way' ? 'selected' : '' }}>On The Way</option>
+                                            <option value="Complete" {{ $order->operational_status == 'Complete' ? 'selected' : '' }}>Complete</option>
+                                            <option value="Cancel" {{ $order->operational_status == 'Cancel' ? 'selected' : '' }}>Cancel</option>
 	                                    </select>
 	                                </div>
 	                            </div>

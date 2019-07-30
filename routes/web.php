@@ -66,6 +66,7 @@ Route::get('/category-product/{id}/{slug}', 'PublicController@getProductbyCatego
 Route::get('/how-to-order', 'PublicController@orderTutsPage');
 Route::get('/terms-conditions', 'PublicController@termsConditionsPage');
 Route::get('/next-day-policy', 'PublicController@nextDayPolicyPage');
+Route::get('/about-us', 'PublicController@aboutUs');
 
 Route::get('/account-login', 'PublicController@otpVerify');
 Route::post('/sendotp', 'PublicController@sendOtp');

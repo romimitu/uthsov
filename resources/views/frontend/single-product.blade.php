@@ -47,7 +47,7 @@
                 @if($item->productDetail->count() == 1)
                   Tk. {{number_format($item->productDetail->max('sales_price'),0)}}
                 @elseif($item->productDetail->count() == 0)
-                Contact Us
+                <a href="tel:+8801920225330">Call for Details</a>
                 @elseif($item->productDetail->count() > 1)
           Tk. {{number_format($item->productDetail->min('sales_price'),0)}} - {{number_format($item->productDetail->max('sales_price'),0)}}
                 @endif
@@ -101,12 +101,14 @@
               <span class="text-danger" id="txtSizeCheck"></span>
             </div>
             @endif
+            @if($item->productDetail->count() > 0)
             <ul class="CTAs list-inline">
               <li class="list-inline-item">
                 <button class="btn btn-template wide addCart"><i class="icon-cart"></i> Add to Cart</button>
               </li>
               <span id="alert"></span>
             </ul>
+            @endif
           </div>
         </div>
       </div>
@@ -232,7 +234,11 @@
                 <a href="{{ url('product', [$product->id, str_slug($product->title)] )}}">
                   <h3 class="h6 no-margin-bottom">{{$product->title}}</h3>
                 </a>
-                <!--<small class="text-muted">Brand: {{$product->brand->name}}</small>-->
+                <!--<small class="text-muted">Brand: {{$product->brand->name}}</small>-->@if($product->productDetail->count() == 0)
+                <p class="p-info">
+                    <a href="tel:+8801920225330"><span class="addToCartDiscountPrice price-new text-center ">Call for Details</span></a>
+                </p>
+                @endif
                 @if($product->productDetail->count() == 1)
                 <input type="text" id="product-size" value="{{$product->productDetail[0]->size_id}}" style="display: none;">
                 <input type="text" id="detailsId" value="{{$product->productDetail[0]->id}}" style="display: none;">

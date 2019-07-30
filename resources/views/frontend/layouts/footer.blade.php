@@ -8,7 +8,7 @@
               <div class="item d-flex align-items-center">
                 <div class="icon"><i class="icon-truck"></i></div>
                 <div class="text">
-                  <h6 class="no-margin text-uppercase">Free shipping &amp; return</h6><span>Free Shipping over 2000 Tk</span>
+                  <h6 class="no-margin text-uppercase">Free shipping &amp; return</h6><span>Free Shipping over 1000 Tk</span>
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
         <div class="container">
           <div class="row">
             <div class="info col-lg-4">
-              <div class="logo"><img src="/frontend/img/logo.png" alt="Uthsov" height="73"></div>
+              <div class="logo"><img src="/frontend/img/logo-footer.png" alt="Uthsov" height="73"></div>
               <p>We are committed to Deliver organic and natural products to your door.</p>
               <ul class="social-menu list-inline">
                 <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
@@ -57,10 +57,10 @@
             <div class="site-links col-lg-2 col-md-6">
               <h5 class="text-uppercase">Company</h5>
               <ul class="list-unstyled">
+                <li> <a href="/about-us">About Us</a></li>
                 <li> <a href="/login">Login</a></li>
                 <li> <a href="/register">Register</a></li>
                 <li> <a href="/cart">Cart</a></li>
-                <li> <a href="/checkout">Checkouts</a></li>
               </ul>
             </div>
             <div class="newsletter col-lg-4">
@@ -77,18 +77,15 @@
       </div>
       <div class="copyrights">
         <div class="container">
-          <div class="row d-flex align-items-center">
+          <div class="row">
             <div class="text col-md-6">
               <p>&copy; 2019 <a href="/" target="_blank">Uthsov IT.</a> All rights reserved.</p>
             </div>
-            <!-- <div class="payment col-md-6 clearfix">
-              <ul class="payment-list list-inline-item pull-right">
-                <li class="list-inline-item"><img src="/frontend/img/visa.svg" alt="..."></li>
-                <li class="list-inline-item"><img src="/frontend/img/mastercard.svg" alt="..."></li>
-                <li class="list-inline-item"><img src="/frontend/img/paypal.svg" alt="..."></li>
-                <li class="list-inline-item"><img src="/frontend/img/western-union.svg" alt="..."></li>
-              </ul>
-            </div> -->
+            <div class="payment col-md-6 clearfix">
+              <div class="pull-right">
+              <small>Design & Develop By <a href="https://facebook.com/romi.mitu" target="_blank">RoMi</a></small>
+              </div>
+            </div>
           </div>
         </div>
       </div>
