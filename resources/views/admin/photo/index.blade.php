@@ -1,15 +1,12 @@
 @extends('admin.master.layout')
 
 @section('content')
-    <section class="content-header">
-      <h1>Banner Setup</h1>
-    </section>
     <section class="content">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Banner</h3>
+                        <h3 class="box-title">Photo Gallery</h3>
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -34,23 +31,21 @@
                                 <thead>
                                     <tr>
                                         <th class="col-sm-1">Sl</th>
-                                        <th class="col-sm-3">Title</th>
-                                        <th class="col-sm-4">Sub Title</th>
+                                        <th class="col-sm-7">Title</th>
                                         <th class="col-sm-2">Image</th>
                                         <th class="col-sm-2">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody id="MainCatbody">
-                                    @foreach($data as $index => $slider)
+                                    @foreach($data as $index => $photo)
                                     <tr>
                                         <td>{{$index +1}}</td>
-                                        <td>{{$slider->title}}</td>
-                                        <td>{{$slider->subtitle}}</td>
-                                        <td><img src="/{{$slider->image}}" class="img-responsive" height="120px"></td>
+                                        <td>{{$photo->title}}</td>
+                                        <td><img src="/{{$photo->image}}" class="img-responsive" height="120px"></td>
                                         <td>
-                                            <a href="{{ url('/sliders/'.$slider->id.'/edit') }}"><i class="fa fa-edit btn-primary btn btn-sm"></i></a>
+                                            <a href="{{ url('/photos/'.$photo->id.'/edit') }}"><i class="fa fa-edit btn-primary btn btn-sm"></i></a>
                                             {!! Form::close() !!}
-                                            {!! Form::open([ 'method' => 'Delete', 'url' => ['/sliders', $slider->id]]) !!}
+                                            {!! Form::open([ 'method' => 'Delete', 'url' => ['/photos', $photo->id]]) !!}
                                             {!! Form::submit('Delete',['class'=>'btn-danger btn btn-sm']) !!}
                                             {!! Form::close() !!}
                                         </td>
@@ -73,7 +68,7 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title">Banner</h5>
                                 </div>
-                                {!! Form::open(['url' => '/sliders', 'method' =>'post', 'class'=>'form-horizontal','enctype'=>"multipart/form-data"]) !!}
+                                {!! Form::open(['url' => '/photos', 'method' =>'post', 'class'=>'form-horizontal','enctype'=>"multipart/form-data"]) !!}
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label class="col-sm-4 control-label">Title</label>
@@ -82,31 +77,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label">Sub Title</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="subtitle">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label">Page Link</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="page_link">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-sm-4 control-label">Image</label>
                                         <div class="col-sm-8">
                                             {!! Form::file('image', ['class'=> 'form-control']) !!}
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label">Status</label>
-                                        <div class="col-sm-8">
-                                            <select name="status" class="form-control">
-                                                <option value="1">Publish</option>
-                                                <option value="0">Hide</option>
-                                            </select>
                                         </div>
                                     </div>
                                 </div>

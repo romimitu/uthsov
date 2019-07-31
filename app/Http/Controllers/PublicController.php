@@ -9,6 +9,7 @@ use App\Product;
 use App\Category;
 use App\Size;
 use App\Blog;
+use App\Photo;
 use DB;
 use Carbon\Carbon;
 use Auth;
@@ -71,6 +72,11 @@ class PublicController extends Controller
         return response()->json($data);
     }
 
+    public function photoGallery()
+    {
+        $photos = Photo::orderBy('created_at', 'desc')->paginate(12);
+        return view('frontend.pages.gallery', compact('photos'));
+    }
 
     public function blogPost()
     {

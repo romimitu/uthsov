@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('sizes','SizeController');
 	Route::resource('orders','OrderController');
 	Route::resource('blogs','BlogController');
+	Route::resource('photos','PhotoController');
 	Route::resource('user/profile','UserDetailsController');
     Route::get('/order-list', 'CartController@orderList')->name('order.list');
     Route::patch('/order-list/{id}', 'CartController@cancelOrder')->name('order.cancel');
@@ -67,6 +68,7 @@ Route::get('/how-to-order', 'PublicController@orderTutsPage');
 Route::get('/terms-conditions', 'PublicController@termsConditionsPage');
 Route::get('/next-day-policy', 'PublicController@nextDayPolicyPage');
 Route::get('/about-us', 'PublicController@aboutUs');
+Route::get('/photo-gallery', 'PublicController@photoGallery');
 
 Route::get('/account-login', 'PublicController@otpVerify');
 Route::post('/sendotp', 'PublicController@sendOtp');

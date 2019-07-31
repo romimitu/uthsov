@@ -54,6 +54,7 @@
               <li class="nav-item"><a href="{{route('shop.page')}}" class="nav-link">Shop</a>
               <!-- <li class="nav-item"><a href="{{route('custom.order')}}" class="nav-link">Custom Order</a> -->
               <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Our Blog</a>
+              <li class="nav-item"><a href="/photo-gallery" class="nav-link">Gallery</a>
               <li class="nav-item"><a href="/contact-us/create" class="nav-link">Contact Us</a>
             </ul>
           </div>

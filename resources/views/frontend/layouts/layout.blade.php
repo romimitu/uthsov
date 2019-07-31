@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/frontend/vendor/nouislider/nouislider.css">
     <!-- Custom font icons-->
     <link rel="stylesheet" href="/frontend/css/custom-fonticons.css">
+    <link rel="stylesheet" href="/frontend/css/lightbox.css">
     <!-- Google fonts - Poppins-->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <!-- owl carousel-->
@@ -172,6 +173,7 @@
         }
     </script>
     <!-- Main Template File-->
+    <script src="/frontend/js/lightbox.js"></script>
     <script src="/frontend/js/front.js"></script>
   
   @yield('script')

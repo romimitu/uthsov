@@ -33,6 +33,7 @@
         </li>
         <li><a href="/sliders"><i class="fa fa-stumbleupon"></i> <span>Sliders</span></a></li>
         <li><a href="/blogs"><i class="fa fa-bullhorn"></i> <span>Blogs</span></a></li>
+        <li><a href="/photos"><i class="fa fa-file-photo-o"></i> <span>Photo Gallery</span></a></li>
         <li><a href="/contact-us"><i class="fa fa-bullhorn"></i> <span>Contact Message</span></a></li>
       </ul>
     </section>
