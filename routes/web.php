@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('orders','OrderController');
 	Route::resource('blogs','BlogController');
 	Route::resource('photos','PhotoController');
+	Route::resource('abouts','AboutController');
 	Route::resource('user/profile','UserDetailsController');
     Route::get('/order-list', 'CartController@orderList')->name('order.list');
     Route::patch('/order-list/{id}', 'CartController@cancelOrder')->name('order.cancel');

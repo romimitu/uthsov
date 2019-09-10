@@ -4,13 +4,13 @@
       <div class="top-bar">
         <div class="container-fluid">
           <div class="row d-flex align-items-center">
-            <div class="col-sm-4 hidden-lg-down">
+            <div class="col-sm-4 hidden-lg-down mob-contact">
               <ul class="list-inline">
-                <li class="list-inline-item"><i class="icon-telephone"></i><a href="tel:+8801920225330">+8801920225330</a></li>
-                <li class="list-inline-item"><i class="icon-mail"></i><a href="mailto:info@uthsov.com">info@uthsov.com</a></li>
+                <li class="list-inline-item"><i class="icon-telephone"></i><a href="tel:{!! $aboutinfo[0]->mobile !!}">{!! $aboutinfo[0]->mobile !!}</a></li>
+                <li class="list-inline-item"><i class="icon-mail"></i><a href="mailto:{!! $aboutinfo[0]->email !!}">{!! $aboutinfo[0]->email !!}</a></li>
               </ul>
             </div>
-            <div class="col-sm-8 d-flex justify-content-end">
+            <div class="col-sm-8 d-flex justify-content-end mob-search">
               <ul class="social-menu list-inline">
                   <li class="list-inline-item">
                       
@@ -42,10 +42,10 @@
           </div>
         </div>
       </div>
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-md">
         <div class="container-fluid">  
           <!-- Navbar Header  -->
-          <a href="/" class="navbar-brand"><img src="/frontend/img/logo.png" alt="uthsov" height="60"></a>
+          <a href="/" class="navbar-brand"><img src="/{{$aboutinfo[0]->header_logo}}" alt="uthsov" height="60"></a>
           <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
           <!-- Navbar Collapse -->
           <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -61,3 +61,10 @@
         </div>
       </nav>
     </header>
+    @if($aboutinfo[0]->notice)
+    <div class="header-notice">
+      <div class="container">
+        <marquee behavior='scroll' direction='left' scrollamount='3' onmouseover='this.stop()' onmouseout='this.start()'>{{$aboutinfo[0]->notice}}</marquee>
+      </div>
+    </div>
+    @endif

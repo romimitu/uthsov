@@ -16,7 +16,7 @@ class ProductRequest extends FormRequest
         return [
             'title'=>'required',
             'sku'=>'required',
-            'description'=>'required',
+           // 'description'=>'required',
         ];
     }
 }

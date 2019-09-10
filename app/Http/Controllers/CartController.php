@@ -186,7 +186,7 @@ class CartController extends Controller
             ]
         ]);
         if($order->customer_email!=null){
-            Mail::to($order->customer_email)->send(new OrderSubmit($order));
+            Mail::to($order->customer_email)->cc(env('MAIL_FROM_ADDRESS'))->send(new OrderSubmit($order));
         }
         session()->forget(['cart']);
         session()->forget(['otp']);
@@ -197,7 +197,7 @@ class CartController extends Controller
     public function showOrder($id)
     {
         $data = [];
-        $data['order'] = Order::with(['products', 'products.product'])->findOrFail($id);
+        $data['order'] = Order::with(['products', 'products.product','products.product.productDetail.size'])->findOrFail($id);
         //dd($data['order']->toArray());
         return view('frontend.orders.details', $data);
     }

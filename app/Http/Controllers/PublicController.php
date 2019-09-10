@@ -23,7 +23,10 @@ class PublicController extends Controller
     {
         $products = Product::with('category','brand','color','image','productDetail', 'productDetail.size')
         ->where('status', 1)
-        ->where('title', 'like', '%' . Input::get('search') . '%')
+        ->where(function($query) {
+            $query->where('title', 'like', '%' . Input::get('search') . '%')
+                ->orWhere('sku', 'like', '%' . Input::get('search') . '%');
+        })
         ->orderBy('created_at', 'desc')
         ->paginate(12);
         return view('frontend.product', ['products' => $products]);
@@ -57,7 +60,7 @@ class PublicController extends Controller
             ->get();
         //dd($sizes);
         $item = Product::find($id);
-        $products = Product::where('cat_id',$item->cat_id)->with('category','brand','color','image','productDetail')->orderBy('created_at', 'desc')->paginate(4);
+        $products = Product::where('cat_id',$item->cat_id)->with('category','brand','color','image','productDetail','productDetail.size')->orderBy('created_at', 'desc')->paginate(4);
         return view('frontend.single-product', compact('item','sizes','products'));
     }
 

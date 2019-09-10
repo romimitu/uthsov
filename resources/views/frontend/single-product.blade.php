@@ -1,7 +1,9 @@
 @extends('frontend.layouts.layout')
 
 @section('content')
-
+<style>
+    b, strong {font-weight: bold;}
+</style>
     <section class="hero hero-page gray-bg padding-small">
       <div class="container">
         <div class="row d-flex">
@@ -68,6 +70,11 @@
 
 			  <dt class="col-sm-3">Color:</dt>
 			  <dd class="col-sm-9">{{$item->color->name}} </dd>
+			  
+            @if($item->productDetail->count() == 1)
+			  <dt class="col-sm-3">Size:</dt>
+			  <dd class="col-sm-9">{{$item->productDetail[0]->size->name}} </dd>
+            @endif
 			</dl>
 			<!-- <div class="review d-flex align-items-center">
                 <ul class="rate list-inline">

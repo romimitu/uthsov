@@ -79,7 +79,8 @@
                                                 <tr>
 													<td><b><a href="javascript:;">{{$product->product->title}}</a></b>
 													<br/>
-													<small>Code: <i>{{$product->product->sku}}</i></small></td>
+													<small>Code: <i>{{$product->product->sku}}</i></small>
+													<small>, Size: <i>{{$product->product->productDetail[0]->size->name}}</i></small></td>
 													<td>{{$product->price}}</td>
 													<td>{{$product->discount_amount}}</td>
 													<td>{{$product->quantity}}</td>
@@ -96,7 +97,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th colspan="4"> Sub Total </th>
-                                                    <th> {{$order->total_amount}} </th>
+                                                    <th> {{$order->total_amount+$order->shipping_fee}} </th>
                                                 </tr>
                                             </tfoot>
                                         </table>

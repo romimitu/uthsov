@@ -5,6 +5,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="/abouts/1/edit"><i class="fa fa-dashboard"></i> <span>About Us</span></a></li>
         <li><a href="/category"><i class="fa fa-500px"></i> <span>Category</span></a></li>
         <li class="treeview">
           <a href="javascript:;">

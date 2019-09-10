@@ -108,7 +108,7 @@
                       +'<input type="text" value="'+product.id+'" id="cartItemId" style="display: none;">'
                       +'<div class="total"><figure><img src="/uploads/product/'+product.image+'"></figure>'
                       +'<div class="addToCartQuantityName">'+qty+'</div>'
-                      +'<div class="addToCartProductName"><p>'+ product.title+'</p>'
+                      +'<div class="addToCartProductName"><p>- '+ product.title+'</p>'
                       +'<span><span>'+ product.size+'</span>/ '+product.sale_price+'tk</span></div>'
                       +'<span class="addToCart_taka" style="font-size: 12px"><span class="ItemTotal">'+netPrice+'</span>tk'
                       +'<i class="fa fa-times" onclick="removeCart('+product.id+')"></i></span>'

@@ -30,7 +30,7 @@
                         <h1 class="text-danger">{{$order->payment_status}}</h1>
 	                    <div class="col company-details">
 	                        <h2 class="name">
-	                        	<a target="_blank" href="http://uthsov.com/" style="font-family: cursive;">UTHSOV DOTCOM</a>
+	                        	<a target="_blank" href="http://uthsov.com/" style="font-family: cursive;">Uthsov.Com</a>
 	                        </h2>
 	                        <address>2/3-A, Barobag, Mirpur-2, Dhaka-1216.</address>
 	                        <div>+88 01920-225330, info@uthsov.com</div>
@@ -58,6 +58,7 @@
 	                        <tr>
 	                            <th>#</th>
 	                            <th class="text-left">Item Name</th>
+	                            <th class="text-left">Size</th>
 	                            <th class="text-right">Quantity</th>
 	                            <th class="text-right">Price</th>
 	                            <th class="text-right">Total</th>
@@ -73,6 +74,7 @@
 	                               </a>  <br/>
 	                               <small>Code: <i>{{$product->product->sku}}</i></small>
 	                            </td>
+	                            <td class="unit text-left">{{$product->product->productDetail[0]->size->name}}</td>
 	                            <td class="qty">{{$product->quantity}}</td>
 	                            <td class="unit">৳ {{$product->price}}</td>
 	                            <td class="total">৳ {{$product->price * $product->quantity}}</td>
@@ -81,27 +83,27 @@
 	                    </tbody>
 	                    <tfoot>
 	                        <tr>
-	                            <td colspan="2"></td>
+	                            <td colspan="3"></td>
 	                            <td colspan="2">SubTotal</td>
 	                            <td>৳ {{$order->total_amount}}</td>
 	                        </tr>
 	                        <tr>
-	                            <td colspan="2"></td>
+	                            <td colspan="3"></td>
 	                            <td colspan="2">Shipping Fee</td>
 	                            <td>৳ {{$order->shipping_fee}}</td>
 	                        </tr>
 	                        <tr>
-	                            <td colspan="2"></td>
+	                            <td colspan="3"></td>
 	                            <td colspan="2">Discount</td>
 	                            <td>৳ {{ $order->products->sum('discount_amount') }}</td>
 	                        </tr>
 	                        <tr>
-	                            <td colspan="2"></td>
+	                            <td colspan="3"></td>
 	                            <td colspan="2">Grand Total</td>
 	                            <td>৳ {{$order->total_amount + $order->shipping_fee - $order->discount_amount}}</td>
 	                        </tr>
 	                        <tr>
-	                            <td colspan="2"></td>
+	                            <td colspan="3"></td>
 	                            <td colspan="2">Paid</td>
 	                            <td>৳ {{$order->paid_amount}}</td>
 	                        </tr>

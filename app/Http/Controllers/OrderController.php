@@ -37,13 +37,13 @@ class OrderController extends Controller
     public function show($id)
     {
         $data = [];
-        $data['order'] = Order::with(['products', 'products.product'])->findOrFail($id);
+        $data['order'] = Order::with(['products', 'products.product','products.product.productDetail.size'])->findOrFail($id);
         return view('admin.order.view', $data);
     }
     public function edit(Order $order)
     {
         $data = [];
-        $data['order'] = Order::with(['products', 'products.product'])->findOrFail($order->id);
+        $data['order'] = Order::with(['products', 'products.product','products.product.productDetail.size'])->findOrFail($order->id);
 
         //dd($data['order']->toArray());
         return view('admin.order.edit', ['order'=>$data['order']]);

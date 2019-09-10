@@ -19,6 +19,7 @@ class PublicServiceProvider extends ServiceProvider
         View::composer('frontend.layouts.sidebar','App\Http\ViewComposer\PublicComposer@getCategory');
         View::composer('frontend.home','App\Http\ViewComposer\PublicComposer@getCategory');
         View::composer('frontend.home','App\Http\ViewComposer\PublicComposer@getTrendProduct');
+        View::composer(['frontend.layouts.header', 'frontend.layouts.footer', 'frontend.pages.about', 'frontend.pages.contact-us', 'frontend.checkout'],'App\Http\ViewComposer\PublicComposer@aboutInfo');
     }
 
     public function register()

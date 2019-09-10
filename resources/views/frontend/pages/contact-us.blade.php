@@ -45,14 +45,14 @@
                 <div class="icon icon-street-map"></div>
               </div>
               <h3>Address</h3>
-              <p>2/3-A, Barobag,<br>Mirpur-2, <br><strong>Dhaka-1216.</strong></p>
+              <p>{!! $aboutinfo[0]->address !!}</p>
             </div>
             <div class="col-md-4">
               <div class="contact-icon">
                 <div class="icon icon-support"></div>
               </div>
               <h3>Call center</h3>
-              <p><strong>+8801920225330</strong></p>
+              <p><strong><a href="tel:{!! $aboutinfo[0]->mobile !!}">{!! $aboutinfo[0]->mobile !!}</a></strong></p>
             </div>
             <div class="col-md-4">
               <div class="contact-icon">
@@ -61,7 +61,7 @@
               <h3>Electronic support</h3>
               <p>Please feel free to write an email to us.</p>
               <ul class="list-style-none">
-                <li><strong><a href="mailto:info@uthsov.com">info@uthsov.com</a></strong></li>
+                <li><strong><a href="mailto:{!! $aboutinfo[0]->email !!}">{!! $aboutinfo[0]->email !!}</a></strong></li>
               </ul>
             </div>
           </div>
@@ -73,7 +73,7 @@
             <h2 class="heading-line">Contact form</h2>
           </header>
           <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-6">
               {!! Form::open(['url' => '/contact-us', 'method' =>'post', 'class'=>'custom-form form', 'enctype'=>"multipart/form-data"]) !!}
                 <div class="controls">
                   <div class="form-group">
@@ -96,9 +96,8 @@
                 </div>
               {!! Form::close() !!}
             </div>
-            <div class="col-md-5">
-
-              
+            <div class="col-md-6">
+              {!! $aboutinfo[0]->map !!}
             </div>
           </div>
         </div>

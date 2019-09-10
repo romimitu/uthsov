@@ -162,7 +162,7 @@
             },
             success: function (data) {
               var total=parseFloat($('#grand-total').text());
-              if(total<1000){
+              if(total<{{$aboutinfo[0]->free_ship_upto}}){
                 $('#shipping-fee').text(data[0].fee);
                 $('#shippingfee').val(data[0].fee);
                 totalCheckoutPrice();

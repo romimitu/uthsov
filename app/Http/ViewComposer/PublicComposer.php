@@ -7,11 +7,19 @@ use App\Product;
 use App\Blog;
 use App\User;
 use App\Category;
+use App\About;
 use Illuminate\View\View;
 use DB;
 use Auth;
 class PublicComposer
 {
+
+    public function aboutInfo(View $view)
+    {
+        $aboutinfo = About::where('id',1)->get();
+        $view->with('aboutinfo', $aboutinfo);
+    }
+
     public function getSlider(View $view)
     {
         $sliders = Slider::orderBy('created_at', 'desc')->where('status',1)->get();

@@ -21,22 +21,24 @@
     <!-- about us-->
     <section class="padding-small">
       <div class="container">
-        <div class="row about-item">
-          <div class="col-lg-8 col-sm-9">
+        <div class="row">
+          <div class="col-sm-6">
             <h2>Who we are</h2>
-            <p class="text-muted">As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built party world. Of so am he remember although required. Bachelor unpacked be advanced at. Confined in declared marianne is vicinity.</p>
+            <p class="text-muted">{!! $aboutinfo[0]->about !!}</p>
           </div>
-          <div class="col-lg-4 col-sm-3 d-none d-sm-flex align-items-center">
-            <div class="about-icon ml-lg-0"><i class="fa fa fa-user-o"></i></div>
+          <div class="col-sm-6 d-none d-sm-flex align-items-center">
+            <div class="about-icon ml-lg-0">
+            <img class="img-responsive" src="{{$aboutinfo[0]->about_img}}">
+            </div>
           </div>
         </div>
-        <div class="row about-item">
-          <div class="col-lg-4 col-sm-3 d-none d-sm-flex align-items-center">
-            <div class="about-icon mr-lg-0"><i class="icon icon-truck"></i></div>
+        <div class="row">
+          <div class="col-lg-3 col-sm-3 d-none d-sm-flex align-items-center">
+            <div class="about-icon"><i class="icon icon-truck"></i></div>
           </div>
-          <div class="col-lg-8 col-sm-9">
+          <div class="col-lg-9 col-sm-9">
             <h2>Mission & Vision</h2>
-            <p class="text-muted">As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built party world. Of so am he remember although required. Bachelor unpacked be advanced at. Confined in declared marianne is vicinity.</p>
+            <p class="text-muted">{!! $aboutinfo[0]->mission_vision !!}</p>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@
                                         <th class="col-sm-2">Customer</th>
                                         <th class="col-sm-1">Mobile</th>
                                         <th class="col-sm-2">Shipping Address</th>
-                                        <th class="col-sm-1">Total Amt</th>
+                                        <th class="col-sm-1">Total_Amt</th>
                                         <th class="col-sm-1">Status</th>
                                         <th class="col-sm-1">Payment</th>
                                         <th class="col-sm-2">Action</th>
@@ -51,7 +51,7 @@
                                         <td>{{$order->customer_name}}</td>
                                         <td>{{$order->customer_mobile}}</td>
                                         <td>{{$order->address}}, {{$order->city}}</td>
-                                        <td>{{$order->total_amount}}</td>
+                                        <td>{{$order->total_amount+$order->shipping_fee}}</td>
                                         <td>{{$order->operational_status}}</td>
                                         <td>{{$order->payment_status}}</td>
                                         <td>

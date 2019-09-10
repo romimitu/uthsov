@@ -18,11 +18,9 @@
 </section>
 <section class="padding-small">
   <div class="container">
-      <div class="col-lg-12">
-        <div class="block-header mb-5">
-           <p>You are ordering as a guest! For more benefit please login. <a href="{{ route('login') }}" class="btn btn-template-outlined btn-sm">Login</a></p>
-        </div>
-        <div class="block-header mb-5">
+      <div class="card bg-light mb-3">
+          <div class="card-header">You are ordering as a guest! For more benefit please login. <a href="{{ route('login') }}" class="btn btn-info btn-sm">Login</a></div>
+        <div class="card-body">
           <div class="send-otp">
             <form action="javascript:;" method="post">
                 <div class="form-group col-md-6 row">
@@ -32,7 +30,7 @@
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-template sendOtp" type="submit" onclick="sendOtp();">Send Code<i class="fa fa-angle-right"></i></button>
+                  <button class="btn btn-success sendOtp" type="submit" onclick="sendOtp();">Send Code<i class="fa fa-angle-right"></i></button>
                 </div>
             </form>
           </div>
@@ -106,7 +104,7 @@
   }
   function sendSms(data){
     var mobile="+88"+data.mobile;
-    var message=`Your Uthsov.com One-time PIN is ${data.code}. It will expire in 5 minutes.`;
+    var message=`Your Uthsov.com One-time PIN is ${data.code}. It will expire in 10 minutes.`;
     $.ajax({
       type : "post",
       url : "http://www.bangladeshsms.com/smsapi",

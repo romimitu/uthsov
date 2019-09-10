@@ -155,3 +155,22 @@ a.btnshow {display: block;bottom: 0;right: 0;height: 25px;background: #d5be28;te
     display: flex;
     height: 40px;
     font-weight: 700;}
+
+.header-notice{background: #cfcfcf;}
+.header-notice .container{}
+.header-notice marquee{font-weight: 800;color: #154027;padding-top: 5px;font-size: 16px;}
+
+@media screen and (max-width: 767px) and (min-width: 576px) {
+    .top-bar {padding: 5px 0rem;font-size: 0.8em;}
+    nav.navbar .nav-item{border-bottom: 1px solid #ddd;text-align: center;}
+}
+@media screen and (max-width: 575px) and (min-width: 320px) {
+    .mob-contact{display: block;}
+    .mob-search .social-menu li:first-child{display: block;}
+    .top-bar .d-flex{display: block !important;}
+    .mob-search .social-menu input{width: 80%;}
+    .addToCart{bottom: 0;left: 0;right: unset;top: unset;width: 100%;}
+    .cartWidth .addToCart_price{display: none;}
+    nav.navbar .nav-item{border-bottom: 1px solid #ddd;text-align: center;}
+    .AddToCartWidth .removeBtn{right: 0px;left: unset;top: -20px;}
+}
