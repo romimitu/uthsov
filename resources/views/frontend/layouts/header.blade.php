@@ -42,6 +42,7 @@
           </div>
         </div>
       </div>
+      
       <nav class="navbar navbar-expand-md">
         <div class="container-fluid">  
           <!-- Navbar Header  -->
@@ -49,10 +50,22 @@
           <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
           <!-- Navbar Collapse -->
           <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav mx-auto" style="overflow: unset;">
               <li class="nav-item"><a href="/" class="nav-link">Home</a>
               <li class="nav-item"><a href="{{route('shop.page')}}" class="nav-link">Shop</a>
-              <!-- <li class="nav-item"><a href="{{route('custom.order')}}" class="nav-link">Custom Order</a> -->
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Category
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    
+                  @foreach($allCategories as $cat)
+                  
+                  <li><a class="dropdown-item" href="{{ url('category-product', [$cat->id, str_slug($cat->name)] )}}">{{$cat->name}}</a></li>
+                  @endforeach
+                </ul>
+              </li>
               <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Our Blog</a>
               <li class="nav-item"><a href="/photo-gallery" class="nav-link">Gallery</a>
               <li class="nav-item"><a href="/contact-us/create" class="nav-link">Contact Us</a>

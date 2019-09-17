@@ -98,7 +98,7 @@ class PublicComposer
         ->where('status', 1)
         ->where('child_status', 1)
         ->inRandomOrder()
-        ->paginate(8);
+        ->paginate(12);
         //$cat = Category::with('childs')->get()->toArray();
         //dd($allCategories);
         $view->with('categories', $categories)->with('allCategories', $allCategories);
