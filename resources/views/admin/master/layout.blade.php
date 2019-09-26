@@ -8,6 +8,7 @@
   
   <link rel="stylesheet" href="{!!asset('admin/css/bootstrap.min.css')!!}">
   <link rel="stylesheet" href="{{asset('admin/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/css/bootstrap-notifications.css')}}">
   <link rel="stylesheet" href="{{asset('admin/css/admin.min.css')}}">
   <link rel="stylesheet" href="{{asset('admin/css/admin-skins.css')}}">
   <link rel="stylesheet" href="{{asset('summernote/summernote.css')}}">
@@ -35,6 +36,7 @@
 </div>
 <!-- jQuery 3 -->
 <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('admin/js/pusher.min.js')}}"></script>
 <script src="{{asset('admin/js/admin.min.js')}}"></script>
 <script src="{{asset('summernote/summernote.min.js')}}"></script>
 <script>
@@ -54,24 +56,47 @@
 </script>
 @yield('script')
 <script>
-$( document ).ready(function() {
-  var url = window.location.href;
-  console.log(url);
-  // for sidebar menu entirely but not cover treeview
-  $('ul.sidebar-menu a').filter(function() {
-      return this.href != url;
-  }).parent().removeClass('active');
+  $( document ).ready(function() {
+    var url = window.location.href;
+    console.log(url);
+    // for sidebar menu entirely but not cover treeview
+    $('ul.sidebar-menu a').filter(function() {
+        return this.href != url;
+    }).parent().removeClass('active');
 
-  // for sidebar menu entirely but not cover treeview
-  $('ul.sidebar-menu a').filter(function() {
-      return this.href == url;
-  }).parent().addClass('active');
+    // for sidebar menu entirely but not cover treeview
+    $('ul.sidebar-menu a').filter(function() {
+        return this.href == url;
+    }).parent().addClass('active');
 
-  // for treeview
-  $('ul.treeview-menu a').filter(function() {
-      return this.href == url;
-  }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
-});
+    // for treeview
+    $('ul.treeview-menu a').filter(function() {
+        return this.href == url;
+    }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
+  });
 </script>
+
+
+<script type="text/javascript">
+      var notificationsCount     = parseInt($('.notify-count').text());
+      var notifications          = $('.notifications-menu').find('ul.notify-area');
+      var pusher = new Pusher('0de028724d318fb9f0a8', {
+        cluster: 'ap2',
+        forceTLS: true
+      });
+
+      // Subscribe to the channel we specified in our Laravel Event
+      var channel = pusher.subscribe('new-order');
+
+      // Bind a function to a Event (the full Laravel class)
+      channel.bind('App\\Events\\NewOrder', function(data) {
+        var newNotificationHtml = `
+          <li><a href="#"><i class="fa fa-shopping-cart text-green"></i>`+data.message+`</a></li>
+        `;
+        notifications.append(newNotificationHtml);
+        notificationsCount += 1;
+        $('.notify-count').text(notificationsCount);
+      });
+    </script>
 </body>
 </html>

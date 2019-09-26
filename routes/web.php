@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('test', function () {
+    event(new App\Events\NewOrder(auth()->user()->name));
+    return "Event has been sent!";
+});
+
 
 Route::get('/', function () {return view('frontend.home');});
 

@@ -15,6 +15,21 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+        <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning notify-count">0</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu notify-area">
+                  
+                </ul>
+              </li>
+              <li class="footer"><a href="/orders">View all</a></li>
+            </ul>
+          </li>
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span class="hidden-xs">{{ Auth::user()->name }} </span>
