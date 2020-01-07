@@ -132,8 +132,8 @@
               <p>Shipping and additional costs are calculated based on values you have entered. For shipping outside dhaka extra courier charge will be add.</p>
               <ul class="order-menu list-unstyled">
                 <li class="d-flex justify-content-between"><span>Order Subtotal </span><strong id="item-total">{{$total}}</strong></li>
+                <li class="d-flex justify-content-between"><span>Vat(5%)</span><strong id="tax">0.00</strong></li>
                 <li class="d-flex justify-content-between"><span>Shipping and handling</span><strong id="shipping-fee">0.00</strong></li>
-                <li class="d-flex justify-content-between"><span>Vat</span><strong id="tax">0.00</strong></li>
                 <li class="d-flex justify-content-between"><span>Total</span><strong class="text-primary price-total" id="grand-total"></strong></li>
               </ul>
             </div>
@@ -177,9 +177,9 @@
     function totalCheckoutPrice(){
     	itemTotal = parseFloat($('#item-total').text());
     	fee = parseFloat($('#shipping-fee').text());
-    	tax = parseFloat($('#tax').text());
-    	$('#grand-total').text((itemTotal+fee+tax).toFixed(2))
+    	taxAmt= itemTotal*5*0.01;
+    	$('#tax').text(taxAmt);
+    	$('#grand-total').text((itemTotal+fee+taxAmt).toFixed(2))
     }
 </script>
 @endsection
-

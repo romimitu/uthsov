@@ -173,7 +173,7 @@ class CartController extends Controller
         $amt =$order->total_amount;
         $fee = $order->shipping_fee;
         $total = $amt+$fee;
-        $msg= "Dear $name, your order has been submitted successfully. invoice value $total tk and invoice no $inv. For more info http://uthsov.com";
+        $msg= "প্রিয় $name, আপনার অর্ডারটি সফলভাবে সম্পন্ন হয়েছে । বিল- $total ৳ এবং বিল নং- $inv বিস্তারিত জানতে ক্লিক করুন  http://uthsov.com";
 
         $client = new Client();
         $res = $client->request('POST', 'http://www.bangladeshsms.com/smsapi', [
